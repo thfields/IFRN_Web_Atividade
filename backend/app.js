@@ -1,8 +1,8 @@
-const express = require('express');
-const cors = require('cors');
-const bodyParser = require('body-parser');
-const userRoutes = require('./routes/userRoutes');
-const sequelize = require('./config/database');
+import express from 'express';
+import cors from 'cors';
+import bodyParser from 'body-parser';
+import userRoutes from './routes/userRoutes.js';
+import sequelize from './config/database.js';
 
 const app = express();
 const port = 3000;

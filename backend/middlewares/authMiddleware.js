@@ -1,7 +1,7 @@
-const jwt = require('jsonwebtoken');
+import jwt from 'jsonwebtoken';
 const secretWord = 'IFRN2@24';
 
-exports.verificarToken = (req, res, next) => {
+export const verificarToken = (req, res, next) => {
   const token = req.headers.authorization?.replace('Bearer ', '');
 
   if (!token) {
