@@ -1,10 +1,9 @@
 import Produtos from '../models/produtos.js';
 
 export const createProduto = async (req, res) => {
-  const { nome, foto, descricao } = req.body;
-
+  const { nome, descricao } = req.body;
   try {
-    const produto = await Produtos.create({ nome, foto, descricao });
+    const produto = await Produtos.create({ nome, descricao });
     res.status(201).json(produto);
   } catch (error) {
     res.status(400).json({ error: error.message });

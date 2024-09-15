@@ -6,12 +6,12 @@ const Produtos = sequelize.define('produtos', {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  foto: {
-    type: DataTypes.STRING,  // Caminho para a imagem do produto
-    allowNull: false,
-  },
   descricao: {
     type: DataTypes.STRING,
+    allowNull: true,
+  },
+  foto: {
+    type: DataTypes.STRING,  // Caminho para a imagem do produto
     allowNull: true,
   },
 }, {
@@ -19,4 +19,4 @@ const Produtos = sequelize.define('produtos', {
   tableName: 'produtos',  // Especificando o nome da tabela
 });
 
-module.exports = Produtos;
+export default Produtos;

@@ -11,8 +11,8 @@ import { verificarToken } from '../middlewares/authMiddleware.js';
 const router = express.Router();
 
 router.post('/produtos', verificarToken, createProduto);
-router.get('/produtos', verificarToken, getAllProdutos);
-router.get('/produto/:id', verificarToken, getProdutoById);
+router.get('/produtos', getAllProdutos);
+router.get('/produto/:id', getProdutoById);
 router.put('/produto/:id', verificarToken, updateProduto);
 router.delete('/produto/:id', verificarToken, deleteProduto);
 
