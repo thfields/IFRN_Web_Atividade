@@ -88,6 +88,67 @@ npm start
 - Como usar: Faça uma requisição DELETE para `/usuario/:id`, substituindo `:id` pelo ID do usuário a ser deletado.
 - OBS: Token necessário para fazer a requisição.
 
+### Endpoint `/produtos`
+
+#### Método: GET
+- Descrição: Retorna todos os produtos cadastrados.
+- Como usar: Faça uma requisição GET para `/produtos`.
+- OBS: Token necessário para fazer a requisição.
+
+#### Método: POST
+- Descrição: Cria um novo produto.
+- Parâmetros:
+- `nome`: Nome do produto (obrigatório).
+- `foto`: Caminho da imagem do produto (obrigatório).
+- `descricao`: Descrição do produto (opcional).
+- Como usar: Faça uma requisição POST para `/produtos`, enviando os parâmetros no corpo da requisição.
+- OBS: Token necessário para fazer a requisição.
+
+### Endpoint `/produtos/:id`
+
+#### Método: GET
+- Descrição: Retorna um produto específico com base no ID fornecido.
+- Como usar: Faça uma requisição GET para `/produtos/:id`, substituindo `:id` pelo ID do produto desejado.
+- OBS: Token necessário para fazer a requisição.
+
+#### Método: PUT
+- Descrição: Atualiza um produto existente com base no ID fornecido.
+- Parâmetros:
+- `nome`: Novo nome do produto.
+- `foto`: Nova foto do produto.
+- `descricao`: Nova descrição do produto.
+- Como usar: Faça uma requisição PUT para `/produtos/:id`, enviando os parâmetros a serem atualizados no corpo da requisição.
+- OBS: Token necessário para fazer a requisição.
+
+#### Método: DELETE
+- Descrição: Deleta um produto existente com base no ID fornecido.
+- Como usar: Faça uma requisição DELETE para `/produtos/:id`, substituindo `:id` pelo ID do produto a ser deletado.
+- OBS: Token necessário para fazer a requisição.
+
+### Endpoint `/compras`
+
+#### Método: GET
+- Descrição: Retorna todas as compras cadastradas.
+- Como usar: Faça uma requisição GET para `/compras`.
+- OBS: Token necessário para fazer a requisição.
+
+#### Método: POST
+- Descrição: Cria uma nova compra.
+- Parâmetros:
+- `usuario_id`: ID do usuário (obrigatório).
+- `produto_id`: ID do produto (obrigatório).
+- Como usar: Faça uma requisição POST para `/compras`, enviando os parâmetros no corpo da requisição.
+- OBS: Token necessário para fazer a requisição.
+
+### Endpoint `/compras/:id`
+
+#### Método: GET
+- Descrição: Retorna uma compra específica com base no ID fornecido.
+- Como usar: Faça uma requisição GET para `/compras/:id`, substituindo `:id` pelo ID da compra desejada.
+- OBS: Token necessário para fazer a requisição.
+
+
+
 Certifique-se de incluir os parâmetros necessários e observar as restrições definidas para cada operação.
 
 
