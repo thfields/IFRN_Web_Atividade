@@ -20,7 +20,7 @@ CREATE TABLE `usuarios` (
 CREATE TABLE `produtos` (
   `id` int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
   `nome` varchar(30) NOT NULL,
-  `foto` varchar(255) NOT NULL,
+  `foto` varchar(255),
   `descricao` varchar(250),
   `createdAt` datetime DEFAULT current_timestamp(),
   `updatedAt` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp()
