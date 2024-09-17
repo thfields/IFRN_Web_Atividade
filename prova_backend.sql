@@ -22,17 +22,11 @@ CREATE TABLE `produtos` (
   `nome` varchar(30) NOT NULL,
   `foto` varchar(255),
   `descricao` varchar(250),
-  `createdAt` datetime DEFAULT current_timestamp(),
-  `updatedAt` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp()
-);
-
--- Tabela de compras
-CREATE TABLE `compras` (
-  `id` int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
-  `usuario_id` int(11) NOT NULL,
-  `produto_id` int(11) NOT NULL,
+  `quantidade` int(11), -- Adiciona a coluna para quantidade
+  `valor` decimal(10, 2), -- Adiciona a coluna para valor com duas casas decimais
+  `usuario_id` int(11), -- Adiciona a coluna para a chave estrangeira
   `createdAt` datetime DEFAULT current_timestamp(),
   `updatedAt` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  FOREIGN KEY (`usuario_id`) REFERENCES `usuarios`(`id`) ON DELETE CASCADE,
-  FOREIGN KEY (`produto_id`) REFERENCES `produtos`(`id`) ON DELETE CASCADE
+  FOREIGN KEY (`usuario_id`) REFERENCES `usuarios`(`id`) ON DELETE SET NULL -- Adiciona a chave estrangeira
 );
+

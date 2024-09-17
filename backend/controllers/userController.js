@@ -14,15 +14,17 @@ function gerarToken(payload) {
 
 export const registerUser = async (req, res) => {
   const { nome, email, senha } = req.body;
-  const senhaCriptografada = encriptarSenha(senha);
+  const foto = req.file ? req.file.path : null;  // Pega o caminho do arquivo
 
   try {
-    const user = await User.create({ nome, email, senha: senhaCriptografada });
+    const senhaCriptografada = encriptarSenha(senha);
+    const user = await User.create({ nome, email, senha: senhaCriptografada, foto });
     res.status(201).json(user);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
 };
+
 
 export const login = async (req, res) => {
   const { email, senha } = req.body;
@@ -73,24 +75,17 @@ export const getUserById = async (req, res) => {
 
 export const updateUser = async (req, res) => {
   const { id } = req.params;
-  const { nome, email, senha, foto, perfil } = req.body;
+  const { nome, email, senha } = req.body;
+  const foto = req.file ? req.file.path : null;  // Pega o caminho do arquivo
 
   try {
     const user = await User.findByPk(id);
     if (!user) {
       return res.status(404).json({ mensagemerro: 'Usuário não encontrado' });
     }
-
-    // Atualiza apenas os campos fornecidos
-    const updateData = {};
-    if (nome) updateData.nome = nome;
-    if (email) updateData.email = email;
-    if (senha) updateData.senha = encriptarSenha(senha);
-    if (foto) updateData.foto = foto;
-    if (perfil) updateData.perfil = perfil;
-
+    
+    const updateData = { nome, email, senha: senha ? encriptarSenha(senha) : undefined, foto };
     await user.update(updateData);
-
     res.json({ mensagem: 'Usuário atualizado com sucesso.' });
   } catch (error) {
     res.status(500).json({ error: error.message });
