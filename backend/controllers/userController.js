@@ -37,7 +37,10 @@ export const login = async (req, res) => {
     }
 
     const token = gerarToken({ id: user.id, nome: user.nome });
-    res.json({ acessToken: token });
+    res.json({ acessToken: token,
+      userId: user.id
+     });
+
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -76,7 +79,7 @@ export const getUserById = async (req, res) => {
 export const updateUser = async (req, res) => {
   const { id } = req.params;
   const { nome, email, senha } = req.body;
-  const foto = req.file ? req.file.path : null;  // Pega o caminho do arquivo
+    const foto = req.file ? req.file.path : null;  // Pega o caminho do arquivo
 
   try {
     const user = await User.findByPk(id);

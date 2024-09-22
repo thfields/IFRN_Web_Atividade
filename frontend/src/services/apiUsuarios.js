@@ -32,7 +32,8 @@ const UsuarioService = {
             const errorData = await resposta.json();
             throw new Error(errorData.message || 'Erro ao buscar usuário');
         }
-        return await resposta.json();
+        const data = await resposta.json();
+        return data;
     },
 
     // Cria um novo usuário
@@ -63,7 +64,13 @@ const UsuarioService = {
             const errorData = await resposta.json();
             throw new Error(errorData.message || 'Erro ao realizar login');
         }
-        return await resposta.json();
+        const data = await resposta.json();
+
+        localStorage.setItem('token', data.acessToken);  // Substitua "data.token" pela chave correta se necessário
+        localStorage.setItem('userId', data.userId); // Assumindo que "userId" é a chave onde o ID do usuário é retornado
+        console.log("Dados do login:", data); // Verifique se o userId e o token estão aqui
+
+        return data; // Retorne os dados para uso posterior, se necessário
     },
 
     // Atualiza um usuário existente
