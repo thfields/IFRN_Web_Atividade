@@ -6,7 +6,7 @@ Backend feito com NodeJS com Express. Utilizando JWT para geração de Token e C
 
 Para o banco de dados o MySQK utilizando o ORM Sequelize.
 
-## Instruções de Configuração e Execução:
+## Backend - Instruções de Configuração e Execução:
 
 1. Certifique-se de ter o Node.js instalado em sua máquina.
   Para verificar utilize o comando:
@@ -25,13 +25,29 @@ git clone https://github.com/thfields/IFRN_Web_Atividade.git
 ```
 prova_backend.sql
 ```
-4. Instale as dependências usando o npm:
+4. Crie os diretórios na raiz do seu projeto:
+```
+uploads/usuarios
+uploads/produtos
+```
+5. Instale as dependências usando o npm:
 ```
 npm install
 ```
-5. Inicie o servidor usando o comando:
+6. Inicie o servidor usando o comando:
 ```
 npm start
+```
+## Frontend - Instruções de Configuração e Execução:
+
+1. Instale as dependências do Frontend acessando o diretório `Frontend` e usando o npm:
+```
+cd Frontend
+npm install
+```
+2. Inicie o Frontend da aplicação usando o comando:
+```
+npm run dev
 ```
 
 # Autenticação com Token

@@ -108,7 +108,7 @@ const LoginPage = () => {
         </div>
 
         {/* Formulário */}
-        <div className="bg-white p-8 rounded-lg shadow-lg min-h-[400px] max-h-[400px]">
+        <div className="bg-white p-8 rounded-lg shadow-lg min-h-[500px] max-h-[400px]">
           <h2 className="text-2xl font-semibold text-center mb-6">
             {isRegistering ? 'Cadastrar-se' : 'Entrar'}
           </h2>

@@ -37,7 +37,7 @@ export const login = async (req, res) => {
     }
 
     const token = gerarToken({ id: user.id, nome: user.nome });
-    res.json({ acessToken: token });
+    res.json({ id:user.id ,acessToken: token });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -84,7 +84,7 @@ export const updateUser = async (req, res) => {
       return res.status(404).json({ mensagemerro: 'Usuário não encontrado' });
     }
     
-    const updateData = { nome, email, senha: senha ? encriptarSenha(senha) : undefined, foto };
+    const updateData = { nome, email, senha: senha ? encriptarSenha(senha) : undefined,  foto: foto || usuario.foto, };
     await user.update(updateData);
     res.json({ mensagem: 'Usuário atualizado com sucesso.' });
   } catch (error) {

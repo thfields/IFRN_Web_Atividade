@@ -61,7 +61,7 @@ export const updateProduto = async (req, res) => {
       return res.status(404).json({ mensagemerro: 'Produto não encontrado' });
     }
     
-    const updateData = { nome, descricao, quantidade, valor, usuario_id, foto };
+    const updateData = { nome, descricao, quantidade, valor, usuario_id,  foto: foto || produto.foto, };
     await produto.update(updateData);
     res.json({ mensagem: 'Produto atualizado com sucesso.' });
   } catch (error) {
