@@ -25,7 +25,7 @@ git clone https://github.com/thfields/IFRN_Web_Atividade.git
 ```
 prova_backend.sql
 ```
-4. Crie os diretórios na raiz do seu projeto:
+4. Crie os diretórios na raiz do backend:
 ```
 uploads/usuarios
 uploads/produtos
